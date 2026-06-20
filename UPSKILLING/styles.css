@@ -1,0 +1,924 @@
+/* ================================================
+   CSS3 ADVANCED FEATURES - STYLESHEET
+   Complete guide to modern CSS capabilities
+   ================================================ */
+
+/* Root Variables - CSS3 Custom Properties */
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #ff6b6b;
+    --accent-color: #ffc107;
+    --dark-color: #333;
+    --light-color: #f5f5f5;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+    --padding-sm: 10px;
+    --padding-md: 20px;
+    --padding-lg: 30px;
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --box-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ================================================
+   GLOBAL STYLES
+   ================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--padding-md);
+}
+
+/* ================================================
+   HEADER & FOOTER
+   ================================================ */
+
+.main-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: var(--padding-lg);
+    text-align: center;
+    margin-bottom: var(--padding-lg);
+    box-shadow: var(--box-shadow-lg);
+}
+
+.main-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    animation: slideDown 0.6s ease-out;
+}
+
+.main-header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.main-footer {
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: var(--padding-lg);
+    margin-top: var(--padding-lg);
+    font-size: 0.9em;
+}
+
+/* ================================================
+   1. CSS3 TRANSITIONS
+   ================================================ */
+
+.transition-demo {
+    display: flex;
+    justify-content: center;
+    padding: var(--padding-lg);
+    gap: var(--padding-md);
+}
+
+.box-transition {
+    width: 150px;
+    height: 150px;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.box-transition:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: var(--box-shadow-lg);
+}
+
+/* ================================================
+   2. CSS3 TRANSFORMS
+   ================================================ */
+
+.transform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--padding-md);
+    padding: var(--padding-lg);
+}
+
+.transform-box {
+    height: 150px;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.transform-box.rotate:hover {
+    transform: rotate(45deg);
+}
+
+.transform-box.scale:hover {
+    transform: scale(1.3);
+}
+
+.transform-box.skew:hover {
+    transform: skewX(20deg) skewY(10deg);
+}
+
+.transform-box.translate:hover {
+    transform: translateX(30px) translateY(-30px);
+}
+
+/* ================================================
+   3. CSS3 ANIMATIONS
+   ================================================ */
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animation-demo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: var(--padding-lg);
+    gap: var(--padding-md);
+    flex-wrap: wrap;
+}
+
+.box-animate {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    animation: slideIn 2s ease-in-out;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.ball-bounce {
+    font-size: 2em;
+    animation: bounce 1s infinite;
+}
+
+.fade-in {
+    font-size: 1.2em;
+    animation: fadeInScale 1.5s ease-out;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ================================================
+   4. SHADOWS & EFFECTS
+   ================================================ */
+
+.shadow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--padding-md);
+    padding: var(--padding-lg);
+}
+
+.shadow-box {
+    height: 150px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.box-shadow {
+    box-shadow: var(--box-shadow-lg);
+    transition: var(--transition);
+}
+
+.box-shadow:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow {
+    font-size: 1.8em;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.filter-blur {
+    filter: blur(2px);
+    background-color: var(--light-color);
+}
+
+.filter-blur:hover {
+    filter: blur(0px);
+}
+
+.filter-grayscale {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    filter: grayscale(100%);
+    transition: var(--transition);
+}
+
+.filter-grayscale:hover {
+    filter: grayscale(0%);
+}
+
+/* ================================================
+   5. ADVANCED GRADIENTS
+   ================================================ */
+
+.gradient-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--padding-md);
+    padding: var(--padding-lg);
+}
+
+.gradient-box {
+    height: 150px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.linear-gradient {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+}
+
+.radial-gradient {
+    background: radial-gradient(circle, var(--primary-color), var(--secondary-color));
+}
+
+.conic-gradient {
+    background: conic-gradient(var(--primary-color), var(--secondary-color), var(--accent-color), var(--primary-color));
+}
+
+.multi-gradient {
+    background: linear-gradient(90deg, 
+        var(--primary-color) 0%, 
+        var(--secondary-color) 25%,
+        var(--accent-color) 50%,
+        var(--secondary-color) 75%,
+        var(--primary-color) 100%);
+}
+
+/* ================================================
+   6. FLEXBOX LAYOUT
+   ================================================ */
+
+.flex-demo {
+    padding: var(--padding-lg);
+}
+
+.flex-container {
+    display: flex;
+    gap: var(--padding-md);
+    background-color: white;
+    padding: var(--padding-md);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.flex-row {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-item {
+    flex: 1;
+    min-width: 100px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--padding-md);
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.flex-item:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+/* ================================================
+   7. CSS GRID LAYOUT
+   ================================================ */
+
+.grid-demo {
+    padding: var(--padding-lg);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 60px 200px 60px;
+    grid-gap: var(--padding-md);
+    background-color: white;
+    padding: var(--padding-md);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.grid-item {
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    padding: var(--padding-md);
+}
+
+.grid-item.header {
+    grid-column: 1 / -1;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.grid-item.footer {
+    grid-column: 1 / -1;
+    background-color: var(--dark-color);
+}
+
+.grid-item.sidebar {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+}
+
+/* ================================================
+   8. BORDERS & BORDER-RADIUS
+   ================================================ */
+
+.border-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--padding-md);
+    padding: var(--padding-lg);
+}
+
+.border-box {
+    height: 150px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.solid-border {
+    border: 4px solid var(--primary-color);
+}
+
+.dashed-border {
+    border: 4px dashed var(--secondary-color);
+}
+
+.gradient-border {
+    background: 
+        linear-gradient(white, white) padding-box,
+        linear-gradient(45deg, var(--primary-color), var(--secondary-color)) border-box;
+    border: 4px solid transparent;
+}
+
+.radius-large {
+    border-radius: 50%;
+    width: 150px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* ================================================
+   9. PSEUDO-ELEMENTS
+   ================================================ */
+
+.pseudo-demo {
+    padding: var(--padding-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-md);
+}
+
+.tooltip {
+    position: relative;
+    background-color: white;
+    padding: var(--padding-md);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+}
+
+.tooltip::after {
+    content: 'Tooltip: Hover-triggered popup';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark-color);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+}
+
+.quote {
+    background-color: white;
+    padding: var(--padding-md);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+    box-shadow: var(--box-shadow);
+    font-style: italic;
+    color: #555;
+}
+
+.quote::before {
+    content: '"';
+    font-size: 3em;
+    color: var(--primary-color);
+    opacity: 0.3;
+    margin-right: 10px;
+}
+
+.btn-with-icon {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-with-icon::after {
+    content: ' →';
+    transition: var(--transition);
+}
+
+.btn-with-icon:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-with-icon:hover::after {
+    content: ' ⟹';
+}
+
+/* ================================================
+   10. OPACITY & VISIBILITY
+   ================================================ */
+
+.opacity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--padding-md);
+    padding: var(--padding-lg);
+}
+
+.opacity-box {
+    height: 100px;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.opacity-0 { opacity: 0; }
+.opacity-25 { opacity: 0.25; }
+.opacity-50 { opacity: 0.5; }
+.opacity-75 { opacity: 0.75; }
+.opacity-100 { opacity: 1; }
+
+/* ================================================
+   11. MEDIA QUERIES
+   ================================================ */
+
+.responsive-demo {
+    padding: var(--padding-lg);
+}
+
+.responsive-box {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: var(--padding-lg);
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2em;
+    box-shadow: var(--box-shadow-lg);
+}
+
+@media (max-width: 768px) {
+    .responsive-box {
+        background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+        font-size: 1em;
+    }
+    
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .transform-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .transform-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .shadow-grid,
+    .gradient-grid,
+    .border-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ================================================
+   12. CSS VARIABLES (CUSTOM PROPERTIES)
+   ================================================ */
+
+.variables-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--padding-md);
+    padding: var(--padding-lg);
+}
+
+.theme-box {
+    padding: var(--padding-lg);
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.theme-light {
+    background-color: white;
+    color: var(--dark-color);
+    border: 2px solid var(--primary-color);
+}
+
+.theme-dark {
+    background-color: #2a2a2a;
+    color: white;
+    border: 2px solid var(--primary-color);
+}
+
+/* ================================================
+   13. CLIPPING & MASKING
+   ================================================ */
+
+.clip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--padding-md);
+    padding: var(--padding-lg);
+}
+
+.clip-box {
+    height: 150px;
+    width: 150px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    margin: 0 auto;
+}
+
+.clip-circle {
+    clip-path: circle(50%);
+}
+
+.clip-polygon {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* ================================================
+   14. BLEND MODES
+   ================================================ */
+
+.blend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--padding-md);
+    padding: var(--padding-lg);
+}
+
+.blend-box {
+    height: 150px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--dark-color);
+    position: relative;
+}
+
+.blend-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--border-radius);
+    opacity: 0.6;
+}
+
+.blend-multiply::before { mix-blend-mode: multiply; }
+.blend-screen::before { mix-blend-mode: screen; }
+.blend-overlay::before { mix-blend-mode: overlay; }
+.blend-lighten::before { mix-blend-mode: lighten; }
+
+/* ================================================
+   15. 3D TRANSFORMS
+   ================================================ */
+
+.transform-3d-demo {
+    padding: var(--padding-lg);
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.perspective-container {
+    perspective: 1000px;
+    width: 200px;
+    height: 200px;
+}
+
+.cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 10s infinite linear;
+}
+
+@keyframes rotateCube {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+.cube-face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2em;
+    color: white;
+    opacity: 0.9;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.front {
+    background-color: var(--primary-color);
+    transform: translateZ(100px);
+}
+
+.back {
+    background-color: var(--secondary-color);
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.right {
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+    background-color: #9c27b0;
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+    background-color: #00bcd4;
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+    background-color: #ff9800;
+    color: var(--dark-color);
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+/* ================================================
+   CODE BLOCKS
+   ================================================ */
+
+.code-block {
+    background-color: #2a2a2a;
+    color: #e8e8e8;
+    padding: var(--padding-md);
+    border-radius: var(--border-radius);
+    margin: var(--padding-md) 0;
+    overflow-x: auto;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.code-block pre {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.code-block code {
+    font-size: 0.9em;
+}
+
+/* ================================================
+   EXERCISE SECTIONS
+   ================================================ */
+
+.exercise-section {
+    background-color: white;
+    margin: var(--padding-md) 0;
+    padding: var(--padding-lg);
+    border-radius: var(--border-radius);
+    border-left: 5px solid var(--primary-color);
+    box-shadow: var(--box-shadow);
+    animation: fadeInScale 0.5s ease-out;
+}
+
+.exercise-section h2 {
+    color: var(--primary-color);
+    margin-bottom: var(--padding-md);
+    font-size: 1.8em;
+}
+
+.section-content {
+    line-height: 1.8;
+}
+
+.section-content > p {
+    color: #666;
+    margin-bottom: var(--padding-md);
+    font-size: 1em;
+}
+
+/* ================================================
+   RESPONSIVE DESIGN
+   ================================================ */
+
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2em;
+    }
+
+    .container {
+        padding: var(--padding-md);
+    }
+
+    .exercise-section {
+        padding: var(--padding-md);
+    }
+
+    .transform-grid,
+    .shadow-grid,
+    .gradient-grid,
+    .border-grid,
+    .blend-grid,
+    .clip-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .main-header {
+        padding: var(--padding-md);
+    }
+
+    .main-header h1 {
+        font-size: 1.5em;
+    }
+
+    .code-block {
+        font-size: 0.8em;
+        overflow-x: auto;
+    }
+
+    .flex-container {
+        flex-direction: column;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}
